@@ -1,6 +1,6 @@
 import React from 'react';
-import { Input } from 'reactstrap';
-import { async } from 'q';
+import { Input, Form, Label, Button } from 'reactstrap';
+
 
 
 
@@ -44,7 +44,7 @@ export class CreateItems extends React.Component<{}, IState> {
         event.preventDefault();
         const newGroceryItems = {
             ...this.state.groceryItems,
-
+            
             itemsId: 0
         }
         const resp = await fetch('http://localhost:8018/grocery_items', {
@@ -52,6 +52,11 @@ export class CreateItems extends React.Component<{}, IState> {
             method: 'POST',
             body: JSON.stringify(newGroceryItems)
         })
+
+        const groceryItemsFromServer = await resp.json();
+        // this.setState({
+        //     ...this.state,
+        // })
 
     }
 

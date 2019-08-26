@@ -16,14 +16,17 @@ public class GListServices {
 	@Autowired
 	private GListRepo glistRepo;
 	
+	//find all of the lists
 	public List<groceryList> findAll(){
 		return glistRepo.findAll();
 	}
 
+	// find by grocery list id
 	public List<groceryList> findByListId(int itemId) {
 		return glistRepo.findByListId(itemId);
 	}
 
+	// create a new grocery list
 	public groceryList createNewList(groceryList gList) {
 		return glistRepo.save(gList);
 	}
