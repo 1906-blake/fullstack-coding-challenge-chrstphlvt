@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { GroceryList } from '../models/groceryList';
 
 
 
@@ -12,18 +13,20 @@ export default class DisplayList extends React.Component<{}, Istate>{
     constructor(props: any){
         super(props);
         this.state = {
-            GroceryList[]
+            GroceryList: [],
+            itemId: 0
         }
     }
 
     findByNumID = async () => {
-        const resp = await fetch(('http://localhost:8018/grocery_list/' + this.state.itemId, {
+        const resp = await fetch('http://localhost:8018/grocery_list/' + this.state.itemId, {
             credentials: 'include'
         })
-        const sitter = await resp.json();
+        gList = await resp.json();
         this.setState({
             ...this.state,
-            sitters: [sitter]
-        }))
+
+        })
+        
     }
 }
